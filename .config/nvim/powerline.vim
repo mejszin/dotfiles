@@ -6,7 +6,7 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
-\ 'colorscheme': 'tender',
+\ 'colorscheme': 'seoul256',
 \ 'active': {
 \   'left': [ [ 'mode', 'paste' ],
 \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]

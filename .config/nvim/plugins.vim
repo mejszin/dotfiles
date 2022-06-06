@@ -26,5 +26,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'morhetz/gruvbox'
     " Tender theme
     Plug 'jacoborus/tender.vim'
+    " Seoul 256 theme
+    Plug 'junegunn/seoul256.vim'
 
 call plug#end()
