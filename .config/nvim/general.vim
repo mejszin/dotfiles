@@ -1,6 +1,10 @@
 " Enable syntax highlighting
 syntax on
 
+" Set colorscheme
+set background=dark
+colorscheme tender
+
 " Encoding UTF-8
 set encoding=UTF-8
 

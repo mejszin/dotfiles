@@ -16,5 +16,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Fuzzy file search
     Plug 'ctrlpvim/ctrlp.vim'
+    " Lightline
+    Plug 'itchyny/lightline.vim'
+    " Plastic theme
+    Plug 'flrnprz/plastic.vim'
+    " Embark theme
+    Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+    " Gruvbox theme
+    Plug 'morhetz/gruvbox'
+    " Tender theme
+    Plug 'jacoborus/tender.vim'
 
 call plug#end()
