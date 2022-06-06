@@ -1,21 +1,17 @@
-# Installation
-
+### neovim & vim-plug
+**Install neovim**
 ```
 sudo apt install neovim
 ```
-
+**Create directory**
 ```
 mkdir ~/.config/nvim
-touch ~/.config/nvim/init.vim
-touch ~/.config/nvim/plugins.vim
 ```
-
+**Install vim-plug**
 ```
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
-# vim-plug
-
+**vim-plug commands**
 ```
 :PlugStatus
 :plugInstall
