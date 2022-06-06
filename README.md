@@ -20,3 +20,10 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 :PlugClean
 :PlugUpgrade
 ```
+### GNU Screen
+**Start screen session with tabs**
+```
+screen -AdmS myshell -t tab0 bash
+screen -S myshell -X screen -t "My 1st Title" sudo -u louis ./my_first_script.sh
+screen -S myshell -X screen -t "My 2nd Title" sudo -u louis ./my_second_script.sh
+```
