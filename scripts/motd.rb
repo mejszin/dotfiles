@@ -89,7 +89,7 @@ def get_weather(q)
 end
 
 weathers = ['southampton', 'oxford'].map { |q| get_weather(q) }.flatten
-services = [['haedi API', 'https://haedi.org/api/ping'], ['milkbox API', 'https://milkasdbox.club/api/ping']].map { |q| get_service_status(*q) }
+services = [['haedi API', 'https://haedi.org/api/ping'], ['milkbox API', 'https://milkbox.club/api/ping']].map { |q| get_service_status(*q) }
 
 # Logo
 print get_logo()
