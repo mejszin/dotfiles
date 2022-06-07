@@ -1,1 +1,1 @@
-cat /var/run/motd.dynamic
+ruby -W0 ./scripts/motd.rb
