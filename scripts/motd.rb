@@ -60,11 +60,12 @@ def get_service_status(service, url)
 end
 
 def get_weather(q)
+    key_path = File.dirname(__FILE__) + '/weather_api_key'
     url = 'https://api.openweathermap.org/data/2.5/weather'
     # Return if no API key found
-    return Array.new(3) unless File.exists?('/home/louis/scripts/weather_api_key')
+    return Array.new(3) unless File.exists?(key_path)
     # Get relevant data with API key
-    appid = File.read('/home/louis/scripts/weather_api_key').chomp
+    appid = File.read(key_path).chomp
     data = get_http_data("#{url}?appid=#{appid}&q=#{q}&units=metric")
     # Return if no API data received
     return Array.new(3) if data == {}
@@ -89,7 +90,17 @@ def get_weather(q)
 end
 
 weathers = ['southampton', 'oxford'].map { |q| get_weather(q) }.flatten
-services = [['haedi API', 'https://haedi.org/api/ping'], ['milkbox API', 'https://milkbox.club/api/ping']].map { |q| get_service_status(*q) }
+websites = [
+    ['haedi.org', 'https://haedi.org/'],
+    ['milkbox.club', 'https://milkbox.club/'],
+    ['machin.dev', 'https://machin.dev/'],
+    ['vault', 'https://vault.machin.dev/'],
+    ['docs', 'https://docs.machin.dev/'],
+].map { |q| get_service_status(*q) }
+services = [
+    ['haedi API', 'https://haedi.org/api/ping'],
+    ['milkbox API', 'https://milkbox.club/api/ping'],
+].map { |q| get_service_status(*q) }
 
 # Logo
 print get_logo()
@@ -103,7 +114,13 @@ unless weathers.first == nil
     print weathers.map.with_index { |line, i| '    ' + line + (i % 3 == 2 ? "\n" : "") }.join("\n")
     print "\n"
 end
-# Services
-print "  Services:\n\n"
-print services.map { |line| '    ' + line }.join("\n")
-print "\n\n"
+
+print "  Websites:#{" " * 22}Services:\n\n"
+(0...[websites.length, services.length].max).each do |index|
+    website = (websites.length > index ? websites[index] : '').ljust(45, ' ')
+    service = (services.length > index ? services[index] : '')
+    # puts [website, service].inspect
+    print '    ' + website + service + "\n"
+end
+
+print "\n"
