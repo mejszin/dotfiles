@@ -3,7 +3,7 @@ syntax on
 
 " Set colorscheme
 set background=dark
-colorscheme seoul256
+colorscheme lucius
 
 " Encoding UTF-8
 set encoding=UTF-8

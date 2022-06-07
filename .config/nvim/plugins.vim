@@ -18,15 +18,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ctrlpvim/ctrlp.vim'
     " Lightline
     Plug 'itchyny/lightline.vim'
-    " Plastic theme
-    Plug 'flrnprz/plastic.vim'
-    " Embark theme
-    Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
-    " Gruvbox theme
-    Plug 'morhetz/gruvbox'
-    " Tender theme
-    Plug 'jacoborus/tender.vim'
-    " Seoul 256 theme
-    Plug 'junegunn/seoul256.vim'
+    " Theme collection
+    Plug 'KurtPreston/vimcolors'
+"   " Plastic theme
+"   Plug 'flrnprz/plastic.vim'
+"   " Embark theme
+"   Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+"   " Gruvbox theme
+"   Plug 'morhetz/gruvbox'
+"   " Tender theme
+"   Plug 'jacoborus/tender.vim'
+"   " Seoul 256 theme
+"   Plug 'junegunn/seoul256.vim'
+"   " Srcery theme
+"   Plug 'srcery-colors/srcery-vim'
+"   " Angr theme
+"   Plug 'zacanger/angr.vim'
 
 call plug#end()
