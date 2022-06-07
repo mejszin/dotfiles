@@ -95,15 +95,15 @@ services = [['haedi API', 'https://haedi.org/api/ping'], ['milkbox API', 'https:
 print get_logo()
 print "\n\n"
 # Operating system
-print get_platform()
+print '  ' + get_platform()
 print "\n\n"
 # Weather
 unless weathers.first == nil
-    print "Weather:\n\n"
-    print weathers.map.with_index { |line, i| '  ' + line + (i % 3 == 2 ? "\n" : "") }.join("\n")
+    print "  Weather:\n\n"
+    print weathers.map.with_index { |line, i| '    ' + line + (i % 3 == 2 ? "\n" : "") }.join("\n")
     print "\n"
 end
 # Services
-print "Services:\n\n"
-print services.map { |line| '  ' + line }.join("\n")
+print "  Services:\n\n"
+print services.map { |line| '    ' + line }.join("\n")
 print "\n\n"
