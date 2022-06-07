@@ -104,7 +104,7 @@ services = [
 
 # Operating system
 # print '  ' + get_platform() + "\n"
-print "  ╞═══════════════════════════════════════════════════════╡\n"
+print "\n  ╞═══════════════════════════════════════════════════════╡\n"
 # Logo
 print get_logo()
 print "\n\n"
