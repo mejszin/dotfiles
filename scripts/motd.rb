@@ -43,12 +43,12 @@ end
 
 def get_logo
     lines = []
-    lines << "                          __    _            __         "
-    lines << "    ____ ___  ____ ______/ /_  (_)___   ____/ /__ _   __"
-    lines << "   / __ `__ \\/ __ `/ ___/ __ \\/ / __ \\ / __  / _ \\ | / /"
-    lines << "  / / / / / / /_/ / /__/ / / / / / / // /_/ /  __/ |/ / "
-    lines << " /_/ /_/ /_/\\__,_/\\___/_/ /_/_/_/ /_(_)__,_/\\___/|___/  "
-    colors = [:magenta, :magenta, :light_blue, :cyan, :light_green]
+    lines << "                            __    _            __         "
+    lines << "      ____ ___  ____ ______/ /_  (_)___   ____/ /__ _   __"
+    lines << "     / __ `__ \\/ __ `/ ___/ __ \\/ / __ \\ / __  / _ \\ | / /"
+    lines << "    / / / / / / /_/ / /__/ / / / / / / // /_/ /  __/ |/ / "
+    lines << "   /_/ /_/ /_/\\__,_/\\___/_/ /_/_/_/ /_(_)__,_/\\___/|___/  "
+    colors = [:white, :dark_white, :dark_black, :light_black, :green]
     return lines.map.with_index { |s, i| s.colorize(colors[i]) }.join("\n")
 end
 
@@ -102,25 +102,27 @@ services = [
     ['milkbox API', 'https://milkbox.club/api/ping'],
 ].map { |q| get_service_status(*q) }
 
+# Operating system
+# print '  ' + get_platform() + "\n"
+print "  ╞═══════════════════════════════════════════════════════╡\n"
 # Logo
 print get_logo()
 print "\n\n"
-# Operating system
-print '  ' + get_platform()
-print "\n\n"
 # Weather
 unless weathers.first == nil
-    print "  Weather:\n\n"
+    print "  ╞═ Weather ═════════════════════════════════════════════╡\n\n"
     print weathers.map.with_index { |line, i| '    ' + line + (i % 3 == 2 ? "\n" : "") }.join("\n")
     print "\n"
 end
 
-print "  Websites:#{" " * 22}Services:\n\n"
-(0...[websites.length, services.length].max).each do |index|
-    website = (websites.length > index ? websites[index] : '').ljust(45, ' ')
-    service = (services.length > index ? services[index] : '')
+print "  ╞═ Websites ═════════════╡     ╞═ Services ═════════════╡\n\n"
+(0...[websites.length, services.length].max + 2).each do |index|
+    website = (websites.length > index ? '  ' + websites[index] : '').ljust(45, ' ')
+    service = (services.length > index ? '  ' + services[index] : '')
+    website = '╞════════════════════════╡' if index == websites.length + 1
+    service = '╞════════════════════════╡' if index == services.length + 1
     # puts [website, service].inspect
-    print '    ' + website + service + "\n"
+    print '  ' + website + service + "\n"
 end
 
 print "\n"
