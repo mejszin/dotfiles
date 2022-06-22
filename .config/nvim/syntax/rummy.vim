@@ -8,8 +8,8 @@ syntax keyword Directory number?
 syntax keyword String upcase downcase concat chr ord
 " Boolean operators (lucius=#b3d38c)
 syntax keyword Operator and or xor not
-" Pointer (lucius=#b3d38c)
-syntax keyword Repeat jmp jmpif return exit
+" Pointer (lucius=#efaf7f)
+syntax keyword Function jmp jmpif return exit
 " Include / Input (lucius=#f0dfaf)
 syntax keyword Include include alias input run
 " Output (lucius=#efaf7f)
