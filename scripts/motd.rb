@@ -104,7 +104,7 @@ services = [
 
 # Operating system
 # print '  ' + get_platform() + "\n"
-print "\n  ╞═══════════════════════════════════════════════════════╡\n"
+print "\n  ╒═══════════════════════════════════════════════════════╕\n"
 # Logo
 print get_logo()
 print "\n\n"
@@ -119,8 +119,8 @@ print "  ╞═ Websites ═════════════╡     ╞═ S
 (0...[websites.length, services.length].max + 2).each do |index|
     website = (websites.length > index ? '  ' + websites[index] : '').ljust(45, ' ')
     service = (services.length > index ? '  ' + services[index] : '')
-    website = '╞════════════════════════╡' if index == websites.length + 1
-    service = '╞════════════════════════╡' if index == services.length + 1
+    website = '╘════════════════════════╛' if index == websites.length + 1
+    service = '╘════════════════════════╛' if index == services.length + 1
     # puts [website, service].inspect
     print '  ' + website + service + "\n"
 end
