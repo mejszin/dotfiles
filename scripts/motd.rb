@@ -41,7 +41,19 @@ def get_platform
     return "Welcome to #{str}!"
 end
 
+
+
 def get_logo
+    lines = []
+    lines << "  ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄   ▄ ▄▄▄▄▄ ▄▄  ▄   ▄▄▄▄  ▄▄▄▄▄ ▄   ▄"
+    lines << "  █ █ █ █   █ █   █ █   █   █   █ █ █   █   █ █     █   █"
+    lines << "  █ █ █ █▄▄▄█ █     █▄▄▄█   █   █  ██   █   █ █▄▄▄▄  █ █ "
+    lines << "  █   █ █   █ █▄▄▄▄ █   █ ▄▄█▄▄ █   █ ▄ █▄▄▄█ █▄▄▄▄  █▄█ "
+    colors = [:white, :dark_white, :dark_black]
+    return lines.map.with_index { |s, i| s.colorize(colors[i]) }.join("\n")
+end
+
+def old_get_logo
     lines = []
     lines << "                            __    _            __         "
     lines << "      ____ ___  ____ ______/ /_  (_)___   ____/ /__ _   __"
@@ -54,7 +66,7 @@ end
 
 def get_service_status(service, url)
     online = Net::Ping::HTTP.new(url).ping?
-    str = "#{service}:".ljust(16, ' ')
+    str = "#{service}:".ljust(15, ' ')
     str += online ? 'Online'.colorize(:light_green) : 'Offline'.colorize(:light_red)
     return str
 end
@@ -71,7 +83,7 @@ def get_weather(q)
     return Array.new(3) if data == {}
     # Return weather data
     weather = data["weather"].first["main"].titleize
-    description = data["weather"].first["description"].titleize
+    description = data["weather"].first["description"].gsub('shower rain', 'rain').titleize
     temperature = data["main"]["temp"].round.to_s + '°'
     feels_like = data["main"]["feels_like"].round.to_s + '°'
     wind_speed = data["wind"]["speed"].round(2).to_s + 'kmph'
@@ -83,9 +95,9 @@ def get_weather(q)
         else; [["  .   * ", "*    . O", ". . *  ."], :light_magenta]
     end
     return [
-        [thumb[0].ljust(11, ' '), description.ljust(20, ' '), q.titleize].join.colorize(color),
-        [thumb[1].ljust(11, ' '), temperature.ljust(20, ' '), "feels like #{feels_like}"].join.colorize(color),
-        [thumb[2].ljust(11, ' '), time.ljust(20, ' '), "wind speed #{wind_speed}"].join.colorize(color),
+        [thumb[0].ljust(10, ' '), description.ljust(22, ' '), q.titleize].join.colorize(color),
+        [thumb[1].ljust(10, ' '), temperature.ljust(22, ' '), "feels like #{feels_like}"].join.colorize(color),
+        [thumb[2].ljust(10, ' '), time.ljust(22, ' '), "wind speed #{wind_speed}"].join.colorize(color),
     ]
 end
 
@@ -100,27 +112,28 @@ websites = [
 services = [
     ['haedi API', 'https://haedi.org/api/ping'],
     ['milkbox API', 'https://milkbox.club/api/ping'],
+    ['mindful API', 'https://mindful.machin.dev/api/ping'],
 ].map { |q| get_service_status(*q) }
 
 # Operating system
 # print '  ' + get_platform() + "\n"
-print "\n  ╒═══════════════════════════════════════════════════════╕\n"
+# print "\n  ╒═══════════════════════════════════════════════════════╕\n"
 # Logo
-print get_logo()
-print "\n\n"
+#print get_logo()
+print "\n"
 # Weather
 unless weathers.first == nil
-    print "  ╞═ Weather ═════════════════════════════════════════════╡\n\n"
+    print "  ╒═ Weather ═════════════════════════════════════════════╕\n\n"
     print weathers.map.with_index { |line, i| '    ' + line + (i % 3 == 2 ? "\n" : "") }.join("\n")
     print "\n"
 end
 
-print "  ╞═ Websites ═════════════╡     ╞═ Services ═════════════╡\n\n"
+print "  ╞═ Websites ═══════════════╡ ╞═ Services ═══════════════╡\n\n"
 (0...[websites.length, services.length].max + 2).each do |index|
-    website = (websites.length > index ? '  ' + websites[index] : '').ljust(45, ' ')
+    website = (websites.length > index ? '  ' + websites[index] : '').ljust(43, ' ')
     service = (services.length > index ? '  ' + services[index] : '')
-    website = '╘════════════════════════╛' if index == websites.length + 1
-    service = '╘════════════════════════╛' if index == services.length + 1
+    website = '╘══════════════════════════╛' if index == websites.length + 1
+    service = '╘══════════════════════════╛' if index == services.length + 1
     # puts [website, service].inspect
     print '  ' + website + service + "\n"
 end
