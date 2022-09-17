@@ -1,7 +1,15 @@
 " Deque (lucius=#93d6a9)
 syntax keyword Type dup drop swap rotate size clear
 " Mathematical (lucius=#cca3b3)
-syntax keyword Special add + subtract - multiply * divide / mod % equals gt > lt < exp ** abs
+syntax keyword Special add subtract multiply divide mod equals gt lt exp abs
+syntax match Special "+"
+syntax match Special "-"
+syntax match Special "*"
+syntax match Special "/"
+syntax match Special "%"
+syntax match Special ">"
+syntax match Special "<"
+syntax match Special "**"
 " Check (lucius=#c0e0b0)
 syntax keyword Directory number?
 " String (lucius=#80c0d9)
