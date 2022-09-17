@@ -1,17 +1,17 @@
 " Deque (lucius=#93d6a9)
-syntax keyword Type dup drop swap rotate size clear
+syntax keyword Type dup drop swap rotate size clear pair
 " Mathematical (lucius=#cca3b3)
 syntax keyword Special add subtract multiply divide mod equals gt lt exp abs
 syntax match Special "\v\+"
 syntax match Special "\v\-"
-syntax match Special "\v\\"
+syntax match Special "\v\\\"
 syntax match Special "\v\*"
 syntax match Special "\v\*\*"
 syntax match Special "\v\<"
 syntax match Special "\v\>"
 syntax match Special "\v\%"
 " Check (lucius=#c0e0b0)
-syntax keyword Directory number?
+syntax keyword Directory assert
 " String (lucius=#80c0d9)
 syntax keyword String upcasedowncase concat chr ord
 " Boolean operators (lucius=#b3d38c)
