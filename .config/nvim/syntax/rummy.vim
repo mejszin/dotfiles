@@ -20,6 +20,7 @@ syntax keyword Operator and or xor not
 syntax keyword Function as with in repeat until goto gotoif jmp jmpif return returnif proc end if unless else exit
 " Include / Input (lucius=#f0dfaf)
 syntax keyword Include input alias run include
+syntax match Include "\v(.*) include"
 " Output (lucius=#efaf7f)
 syntax keyword Function trace inspect print
 " Boolean (lucius=#8cd0d3)
