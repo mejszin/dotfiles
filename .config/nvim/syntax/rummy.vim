@@ -4,7 +4,7 @@ syntax keyword Type dup drop swap rotate size clear pair
 syntax keyword Special add subtract multiply divide mod equals gt lt exp abs
 syntax match Special "\v\+"
 syntax match Special "\v\-"
-syntax match Special "\v\\\\"
+syntax match Special "\v\/"
 syntax match Special "\v\*"
 syntax match Special "\v\*\*"
 syntax match Special "\v\<"
