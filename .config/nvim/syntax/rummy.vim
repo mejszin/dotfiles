@@ -1,7 +1,7 @@
 " Deque (lucius=#93d6a9)
 syntax keyword Type dup drop swap rotate size clear pair
 " Mathematical (lucius=#cca3b3)
-syntax keyword Special add subtract multiply divide mod equals gt lt exp abs
+syntax keyword Special add subtract multiply divide mod equals gt lt exp abs sqrt
 syntax match Special "\v\+"
 syntax match Special "\v\-"
 syntax match Special "\v\/"
