@@ -101,7 +101,8 @@ def get_weather(q)
     ]
 end
 
-weathers = ['southampton', 'oxford'].map { |q| get_weather(q) }.flatten
+LOCATIONS = ['southampton', 'oxford']
+weathers = LOCATIONS.map { |q| get_weather(q) }.flatten
 websites = [
     ['haedi.org', 'https://haedi.org/'],
     ['milkbox.club', 'https://milkbox.club/'],
