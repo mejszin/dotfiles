@@ -28,4 +28,6 @@ syntax match Comment "\v!"
 syntax match Comment "\v#(.*)"
 " Numbers (lucius=#8cd0d3)
 syntax match Number "\v\d"
+" String (lucius=#8cd0d3)
+syntax region String start="\"" end="\""
 let b:current_syntax = "rummy"
